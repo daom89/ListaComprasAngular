@@ -1,0 +1,70 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Crear un producto nuevo</mat-card-title>
+    <form [formGroup]="formularioProducto" autocomplete="off" novalidate
+      (ngSubmit)="accionEnviar(formularioProducto.value)" fxLayout="column wrap" fxLayoutAlign="center center"
+      fxLayoutGap="10px">
+      <mat-card-content>
+        <!--[Campo texto con control de longitud]---------------------->
+        <mat-form-field>
+          <input matInput type="text" placeholder="Nombre del producto" formControlName="nombre" id="nombre">
+          <mat-hint align="end">No más de 60 caracteres de largo.</mat-hint>
+          <mat-error *ngIf="hasError('nombre', 'required')">Nombre es
+            requerido</mat-error>
+          <mat-error *ngIf="hasError('nombre', 'maxlength')">Tienes más de 60
+            caracteres</mat-error>
+        </mat-form-field>
+        <!--[Lista de selección]---------------------->
+        <mat-form-field appearance="fill">
+          <mat-label>Categoria</mat-label>
+          <mat-select placeholder="Categoria del producto" formControlName="categoria">
+            <mat-option value="Proteina">Proteina</mat-option>
+            <mat-option value="Harina">Harina</mat-option>
+            <mat-option value="Granos">Granos</mat-option>
+            <mat-option value="Frutas">Frutas</mat-option>
+            <mat-option value="Vegetales">Vegetales</mat-option>
+            <mat-option value="Lacteos">Lacteos</mat-option>
+            <mat-option value="Licor">Licor</mat-option>
+            <mat-option value="Dulces">Dulces</mat-option>
+            <mat-option value="Delicateses">Delicateses</mat-option>
+            <mat-option value="Aseo">Aseo</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!--[Campo de fecha]---------------------->
+        <mat-form-field>
+          <mat-label>Fecha de creación</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Fecha de creación" formControlName="fechaCreacion">
+          <mat-hint align="end">Fecha DD/MM/AAAA de
+            creación</mat-hint>
+          <mat-error *ngIf="hasError('cantidadMinima',
+  'required')">Fecha de Creación es requerida</mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <!--[Campo numerico]---------------------->
+        <mat-form-field>
+          <input matInput type="number" placeholder="Cantidad mínima requerida" formControlName="cantidadMinima"
+            id="cantidadMinima">
+          <mat-hint align="end">Número acorde a las unidades.</mat-hint>
+          <mat-error *ngIf="hasError('cantidadMinima', 'required')">Cantidad mínima es requerida</mat-error>
+        </mat-form-field>
+        <!--[Campo numerico]---------------------->
+        <mat-form-field>
+          <input matInput type="number" placeholder="Cantidad registrada requerida" formControlName="cantidad"
+            id="cantidad">
+          <mat-hint align="end">Número acorde a las unidades.</mat-hint>
+          <mat-error *ngIf="hasError('cantidad', 'required')">Cantidad mínima
+            es requerida</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" [disabled]="!formularioProducto.valid">
+          Adicionar registro
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="onCancel()">
+          Cancelar
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>

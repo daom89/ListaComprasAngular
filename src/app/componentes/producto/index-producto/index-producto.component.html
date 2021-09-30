@@ -1,0 +1,72 @@
+<button mat-raised-button color="primary" (click)="router.navigate(['/formularioproducto']);"> <mat-icon aria-hidden="false" aria-label="Example home icon">playlist_add</mat-icon> Agregar Producto </button>
+<P>
+<div class="mat-elevation-z8" style="width: 100%;" >
+  <mat-form-field>
+    <mat-label>Buscar...</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. licor" #input>
+  </mat-form-field>
+  <table mat-table matSort [dataSource]="dataSource" cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="drop($event)">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-footer-cell cdkDrag *matFooterCellDef> No. </td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      <td mat-footer-cell cdkDrag *matFooterCellDef> Nombre </td>
+    </ng-container>
+
+    <!-- Categoria Column -->
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Categoria </th>
+      <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+      <td mat-footer-cell cdkDrag *matFooterCellDef> Categoria </td>
+    </ng-container>
+
+    <!-- fechaCreacion Column -->
+    <ng-container matColumnDef="fechaCreacion">
+      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Creacion </th>
+      <td mat-cell *matCellDef="let element"> {{element.fechaCreacion}} </td>
+      <td mat-footer-cell cdkDrag  *matFooterCellDef> Creacion </td>
+    </ng-container>
+
+    <!-- cantidadMinima Column -->
+    <ng-container matColumnDef="cantidadMinima">
+      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Cant. Minima </th>
+      <td mat-cell *matCellDef="let element"> {{element.cantidadMinima}} </td>
+      <td mat-footer-cell cdkDrag *matFooterCellDef> Cant. Minima </td>
+    </ng-container>
+
+    <!-- cantidad Column -->
+    <ng-container matColumnDef="cantidad">
+      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Cantidad </th>
+      <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+      <td mat-footer-cell cdkDrag *matFooterCellDef> Cantidad </td>
+    </ng-container>
+
+    <!-- actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="router.navigate(['/editproducto', element.id]);">Editar</button> &nbsp;
+        <button mat-raised-button color="warn" (click)="openDeleteDialog(element.nombre, element.id)">Eliminar</button>
+      </td>
+      <td mat-footer-cell cdkDrag *matFooterCellDef> Acciones </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,29 @@
+1) Instalar Node.
+2) npm install -g typescript​
+3) npm install -g @angular/cli
+4) ng --version
+5) Visual Code:
+    1) Terminal de Jun Han.
+    2) Angular Snippets de Jhon Papa
+    3) HTML Snippets de Mohamed Abusaid.
+    4) IntelliSense for CSS de Zignd.
+    5) vscode-icons.
+    6) Settings, Auto Save => onFocusChange,
+
+
+Crear Proyecto:
+
+1) ng new listaCompra
+2) Crear cuenta en firebase.
+3) npm install -g firebase-tools
+4) firebase login
+5) ng add @angular/fire
+6) ng deploy
+7) ng serve
+8) ng add @angular/material
+9) ng generate component /views/persona/create --skipTests=true
+10) ng g c /views/persona/create --skipTests=true
+11) npm install --save firebase @angular/fire
+12) ng g class modelos/Producto --type=model --skipTests=true
+13) ng g service servicios/Producto --skipTests=true
+14) ng g c componentes/producto/formProducto --skipTests=true

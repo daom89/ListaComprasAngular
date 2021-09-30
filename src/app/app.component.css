@@ -1,0 +1,27 @@
+.estiloHeader {
+  position: fixed;
+  z-index: 1; /* permite pasar elementos por abajo sin borrar */
+  top: 0;
+  left: 0;
+  width: 100%;
+ }
+
+ .estiloSection {
+  padding: 10px;
+  margin-bottom: 35px;
+  margin-right: 10px;
+  margin-left: 10px;
+  position: relative;
+ }
+
+ .estiloFooter {
+  padding: 1px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3F51B5;
+  color: white;
+  text-align: center;
+}
+

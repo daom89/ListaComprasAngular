@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lista-angular-daom": {
+      "hosting": {
+        "listaCompra": [
+          "lista-angular-daom"
+        ]
+      }
+    }
+  }
+}
